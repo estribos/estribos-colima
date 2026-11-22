@@ -54,21 +54,22 @@
       flex-wrap: wrap;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      background-color: var(--white);
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .brand-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      color: var(--white);
-    }
-
-    .brand-tag {
-      font-size: 0.8rem;
-      color: #CBD5E1;
+    .brand-link img {
+      height: 44px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      display: block;
     }
 
     nav {
@@ -427,10 +428,9 @@
 
   <header>
     <div class="nav-container">
-      <div class="brand">
-        <span class="brand-name">ESTRIBOS COLIMA BEMON</span>
-        <span class="brand-tag">Estribos de alambrón · Colima</span>
-      </div>
+      <a class="brand-link" href="#">
+        <img src="logo%20bemon%20estribo.jpeg" alt="Estribos Colima Bemon" />
+      </a>
       <nav>
         <a href="#medidas">Medidas</a>
         <a href="#cotizador">Cotizador</a>
@@ -450,7 +450,7 @@
           Fabricación y suministro de estribos de alambrón. Trabajamos medidas tradicionales 10x15, 10x20 y 10x25 cm, además de medidas especiales según lo que requiera tu proyecto.
         </p>
         <div class="hero-actions">
-          <a class="btn-wa" href="https://wa.me/523121171958?text=Hola%2C%20me%20interesa%20cotizar%20estribos%20de%20alambr%C3%B3n%20en%20Colima." target="_blank" rel="noopener noreferrer">
+          <a class="btn-wa" href="https://wa.me/523121171958?text=Hola%2C%20me%20interesa%20cotizar%20estribos%20de%20alambr%C3%B3n." target="_blank" rel="noopener noreferrer">
             Cotizar por WhatsApp
           </a>
           <a class="btn-outline" href="#medidas">Ver Medidas</a>
@@ -471,7 +471,7 @@
         </div>
       </div>
       <div class="hero-media">
-        <img src="principal.jpeg" alt="" />
+        <img src="principal.jpeg" alt="Estribos Colima Bemon" />
       </div>
     </div>
   </section>
@@ -585,7 +585,7 @@
   <section id="taller">
     <div class="section-header">
       <h2>Estribos de Alambrón</h2>
-      <p>Fabricación de estribos de alambrón en Colima.</p>
+      <p>Fabricación de estribos de alambrón.</p>
     </div>
 
     <div class="gallery-grid">
@@ -602,7 +602,7 @@
   </section>
 
   <footer>
-    <p>Estribos Colima Bemon · Estribos de alambrón en Colima</p>
+    <p>Estribos Colima Bemon · Fabricación y Suministro de Estribos de Alambrón</p>
     <a class="btn-wa" href="https://wa.me/523121171958?text=Hola%2C%20quiero%20cotizar%20estribos%20de%20alambr%C3%B3n%20en%20Estribos%20Colima%20Bemon." target="_blank" rel="noopener noreferrer">
       Cotizar por WhatsApp
     </a>
