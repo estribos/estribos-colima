@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estribos Colima Bemon | Estribos de Alambrón Antisísmicos</title>
+  <style>
+    :root {
+      --navy: #0A192F;
+      --navy-dark: #06101F;
+      --navy-light: #132A4A;
+      --orange: #F97316;
+      --orange-hover: #EA580C;
+      --slate-900: #0F172A;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(10, 25, 47, 0.1), 0 8px 10px -6px rgba(10, 25, 47, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--slate-900);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(10, 25, 47, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 76px;
+      padding: 8px 0;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-lockup svg {
+      height: 54px;
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #CBD5E1;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-wa {
+      background-color: var(--orange);
+      color: var(--white);
+      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-wa:hover {
+      background-color: var(--orange-hover);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 58%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 56px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249, 115, 22, 0.16);
+      border: 1px solid rgba(249, 115, 22, 0.45);
+      color: #FDBA74;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      color: #CBD5E1;
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .highlight-box strong {
+      display: block;
+      color: var(--orange);
+      font-size: 1rem;
+    }
+
+    .highlight-box span {
+      font-size: 0.84rem;
+      color: #E2E8F0;
+    }
+
+    .hero-card {
+      background: var(--navy-dark);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+    }
+
+    .hero-card-caption {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: #E2E8F0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dot-orange {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* Sections */
+    section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-eyebrow {
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .section-head p {
+      color: var(--slate-600);
+    }
+
+    /* Catalog */
+    .measures-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .measure-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .measure-card.special {
+      border: 2px solid var(--orange);
+      background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 45%);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--slate-100);
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .measure-card.special .tag {
+      background: #FFEDD5;
+      color: #9A3412;
+    }
+
+    .measure-size {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .measure-desc {
+      color: var(--slate-600);
+      font-size: 0.92rem;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* Quote Builder */
+    .quote-box {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .mode-btn {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--slate-200);
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--slate-900);
+      background: var(--white);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--orange);
+      border-color: var(--orange);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 4px 12px rgba(10, 25, 47, 0.06);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .gallery-item p {
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-dark);
+      color: #CBD5E1;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-meta {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      margin-top: 8px;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 50;
+      background: var(--orange);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 12px 24px rgba(10, 25, 47, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wa-float:hover {
+      background: var(--orange-hover);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .measures-grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .measures-grid,
+      .gallery-grid,
+      .form-grid,
+      .hero-highlights,
+      .mode-switch {
+        grid-template-columns: 1fr;
+      }
+      .hero-card img {
+        height: 290px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#inicio" class="brand-lockup" aria-label="Estribos Colima Bemon">
+        <!-- Logo Oficial Vectorizado Estribos Colima Bemon -->
+        <svg viewBox="0 0 540 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estribos Colima Bemon - Calidad, Precisión, Compromiso">
+          <rect x="6" y="8" width="114" height="114" rx="18" fill="#0B2240" stroke="#1E3A5F" stroke-width="2"/>
+          <polygon points="63,21 104,65 63,109 22,65" fill="none" stroke="#F97316" stroke-width="7" stroke-linejoin="round"/>
+          <polygon points="63,34 91,65 63,96 35,65" fill="none" stroke="#FB923C" stroke-width="5.5" stroke-linejoin="round"/>
+          <text x="138" y="45" fill="#F97316" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" letter-spacing="1.5">ESTRIBOS COLIMA</text>
+          <text x="136" y="92" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="900" letter-spacing="2">BEMON</text>
+          <text x="138" y="118" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" letter-spacing="2.2">CALIDAD • PRECISIÓN • COMPROMISO</text>
+        </svg>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#medidas">Medidas</a>
+        <a href="#cotizador">Cotizador</a>
+        <a href="#galeria">Taller</a>
+      </nav>
+
+      <a href="#" class="btn btn-wa js-wa-direct" data-msg="Hola Estribos Colima Bemon, me gustaría cotizar estribos de alambrón antisísmicos.">
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Colima • Gancho a 135°</div>
+          <h1>Estribos de Alambrón Antisísmicos <span>(con gancho de 135 grados)</span></h1>
+          <p>
+            Fabricación y suministro de estribos de alambrón para obra en Colima. Trabajamos medidas tradicionales
+            <strong>10x15</strong>, <strong>10x20</strong> y <strong>10x25</strong>, además de <strong>medidas especiales</strong>
+            según lo que requiera tu proyecto.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#cotizador" class="btn btn-wa">Cotizar por WhatsApp</a>
+            <a href="#medidas" class="btn btn-outline">Ver Medidas</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-box">
+              <strong>Gancho 135°</strong>
+              <span>Estribos antisísmicos</span>
+            </div>
+            <div class="highlight-box">
+              <strong>Tradicionales</strong>
+              <span>10x15 • 10x20 • 10x25</span>
+            </div>
+            <div class="highlight-box">
+              <strong>A Medida</strong>
+              <span>Medidas especiales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="b0a96d5b-fdb5-4439-8fcb-5f5faa7eb94b.jpg" alt="Estribos de alambrón antisísmicos con gancho a 135 grados de Estribos Colima Bemon" />
+          <div class="hero-card-caption">
+            <span class="dot-orange"></span>
+            <span>Estribos de alambrón con doblez a 135° listos para obra</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="medidas">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Catálogo de Medidas</div>
+          <h2>Medidas Tradicionales y Especiales</h2>
+          <p>Elige tu medida o solicita fabricación especial y manda tu pedido directo por WhatsApp.</p>
+        </div>
+
+        <div class="measures-grid">
+          <article class="measure-card">
+            <div>
+              <span class="tag">Medida Tradicional</span>
+              <div class="measure-size">10x15 cm</div>
+              <p class="measure-desc">Estribo de alambrón antisísmico con gancho de 135 grados para castillos y refuerzo estructural.</p>
+            </div>
+            <a href="#" class="btn btn-wa btn-block js-wa-direct" data-msg="Hola Estribos Colima Bemon, quiero cotizar estribos de alambrón antisísmicos (gancho 135°) medida tradicional 10x15 cm.">
+              Cotizar por WhatsApp
+            </a>
+          </article>
+
+          <article class="measure-card">
+            <div>
+              <span class="tag">Medida Tradicional</span>
+              <div class="measure-size">10x20 cm</div>
+              <p class="measure-desc">Estribo de alambrón antisísmico con gancho de 135 grados para elementos de mayor sección.</p>
+            </div>
+            <a href="#" class="btn btn-wa btn-block js-wa-direct" data-msg="Hola Estribos Colima Bemon, quiero cotizar estribos de alambrón antisísmicos (gancho 135°) medida tradicional 10x20 cm.">
+              Cotizar por WhatsApp
+            </a>
+          </article>
+
+          <article class="measure-card">
+            <div>
+              <span class="tag">Medida Tradicional</span>
+              <div class="measure-size">10x25 cm</div>
+              <p class="measure-desc">Estribo de alambrón antisísmico con gancho de 135 grados para columnas, dalas o cadenas.</p>
+            </div>
+            <a href="#" class="btn btn-wa btn-block js-wa-direct" data-msg="Hola Estribos Colima Bemon, quiero cotizar estribos de alambrón antisísmicos (gancho 135°) medida tradicional 10x25 cm.">
+              Cotizar por WhatsApp
+            </a>
+          </article>
+
+          <article class="measure-card special">
+            <div>
+              <span class="tag">Fabricación Especial</span>
+              <div class="measure-size">Medidas Especiales</div>
+              <p class="measure-desc">Fabricamos estribos de alambrón antisísmicos con gancho de 135 grados en las medidas que pida tu obra.</p>
+            </div>
+            <a href="#" class="btn btn-wa btn-block js-wa-direct" data-msg="Hola Estribos Colima Bemon, quiero cotizar estribos de alambrón antisísmicos (gancho 135°) en medidas especiales.">
+              Cotizar por WhatsApp
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cotizador">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Cotización Rápida</div>
+          <h2>Arma tu Solicitud y Envíala por WhatsApp</h2>
+          <p>Selecciona medida tradicional o medida especial, indica la cantidad y abre el chat directo.</p>
+        </div>
+
+        <div class="quote-box">
+          <div class="mode-switch" role="tablist">
+            <button type="button" class="mode-btn active" id="btnTradicional">Medidas Tradicionales</button>
+            <button type="button" class="mode-btn" id="btnEspecial">Medidas Especiales</button>
+          </div>
+
+          <form id="quoteForm">
+            <div class="form-grid">
+              <div class="field" id="fieldTradicional">
+                <label for="medidaSelect">Medida tradicional</label>
+                <select id="medidaSelect">
+                  <option value="10x15 cm">10x15 cm</option>
+                  <option value="10x20 cm">10x20 cm</option>
+                  <option value="10x25 cm">10x25 cm</option>
+                </select>
+              </div>
+
+              <div class="field hidden" id="fieldEspecial">
+                <label for="medidaEspecialInput">Medida especial requerida (cm)</label>
+                <input type="text" id="medidaEspecialInput" placeholder="Ej. 15x20 cm, 15x30 cm, 20x20 cm" />
+              </div>
+
+              <div class="field">
+                <label for="cantidadInput">Cantidad de piezas</label>
+                <input type="number" id="cantidadInput" min="1" placeholder="Ej. 250" />
+              </div>
+
+              <div class="field">
+                <label for="nombreInput">Tu nombre o constructora</label>
+                <input type="text" id="nombreInput" placeholder="Ej. Ing. Ramírez / Obra Colima" />
+              </div>
+
+              <div class="field full">
+                <label for="notasInput">Notas adicionales (opcional)</label>
+                <textarea id="notasInput" rows="2" placeholder="Zona de entrega, fecha requerida o detalles de obra"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-wa btn-block">Cotizar por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Producción y Stock</div>
+          <h2>Lotes y Material en Taller</h2>
+          <p>Atados, paquetes emplayados y alambrón listo para entrega.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="3f0a2dab-d5a2-444c-a1bf-846fe7d640f2.jpg" alt="Atados de estribos de alambrón con gancho a 135 grados" />
+            <p>Atados de estribos a 135°</p>
+          </div>
+          <div class="gallery-item">
+            <img src="09d07b23-9368-468a-acde-6ad5056878d4.jpg" alt="Lote de estribos de alambrón en taller" />
+            <p>Producción en taller</p>
+          </div>
+          <div class="gallery-item">
+            <img src="89cdaff8-1780-46f6-adf7-60d2670719f6.jpg" alt="Estribos junto a rollo de alambrón" />
+            <p>Rollo de alambrón y estribos</p>
+          </div>
+          <div class="gallery-item">
+            <img src="d34cae3c-f102-4aba-b6b1-e7525dceea60.jpg" alt="Filas de estribos acomodados para entrega" />
+            <p>Acomodo listo para obra</p>
+          </div>
+          <div class="gallery-item">
+            <img src="WhatsApp Image 2026-03-10 at 10.48.26 AM.jpeg" alt="Existencias de estribos de alambrón" />
+            <p>Existencias disponibles</p>
+          </div>
+          <div class="gallery-item">
+            <img src="WhatsApp Image 2026-03-30 at 10.52.26 AM.jpeg" alt="Paquetes de estribos apilados" />
+            <p>Atados apilados por lote</p>
+          </div>
+          <div class="gallery-item">
+            <img src="c5ad976a-6a42-4377-b163-4eb45a303001.jpg" alt="Detalle de doblez y gancho en estribos de alambrón" />
+            <p>Detalle de doblez a 135°</p>
+          </div>
+          <div class="gallery-item">
+            <img src="9addd35c-a0a8-4591-83ba-821bd0ef0a71.jpg" alt="Paquetes de estribos emplayados" />
+            <p>Paquetes emplayados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <svg viewBox="0 0 460 95" width="290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estribos Colima Bemon">
+          <rect x="4" y="6" width="82" height="82" rx="14" fill="#0B2240" stroke="#1E3A5F" stroke-width="2"/>
+          <polygon points="45,16 74,47 45,78 16,47" fill="none" stroke="#F97316" stroke-width="5.5" stroke-linejoin="round"/>
+          <polygon points="45,25 65,47 45,69 25,47" fill="none" stroke="#FB923C" stroke-width="4" stroke-linejoin="round"/>
+          <text x="100" y="34" fill="#F97316" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" letter-spacing="1.2">ESTRIBOS COLIMA</text>
+          <text x="99" y="68" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" letter-spacing="1.5">BEMON</text>
+          <text x="100" y="87" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.8">CALIDAD • PRECISIÓN • COMPROMISO</text>
+        </svg>
+        <p class="footer-meta">Estribos de Alambrón Antisísmicos (con gancho de 135 grados) • Colima, México</p>
+      </div>
+
+      <a href="#" class="btn btn-wa js-wa-direct" data-msg="Hola Estribos Colima Bemon, quiero solicitar información y cotización de estribos de alambrón.">
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </footer>
+
+  <a href="#" class="wa-float js-wa-direct" data-msg="Hola Estribos Colima Bemon, me gustaría cotizar estribos de alambrón.">
+    Cotizar por WhatsApp
+  </a>
+
+  <script>
+    const WA_NUMBER = "523121171958";
+
+    function buildWaUrl(message) {
+      return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    document.querySelectorAll(".js-wa-direct").forEach((el) => {
+      const msg = el.getAttribute("data-msg") || "Hola Estribos Colima Bemon, quiero cotizar estribos de alambrón.";
+      el.setAttribute("href", buildWaUrl(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    });
+
+    const btnTradicional = document.getElementById("btnTradicional");
+    const btnEspecial = document.getElementById("btnEspecial");
+    const fieldTradicional = document.getElementById("fieldTradicional");
+    const fieldEspecial = document.getElementById("fieldEspecial");
+    let modoActual = "tradicional";
+
+    btnTradicional.addEventListener("click", () => {
+      modoActual = "tradicional";
+      btnTradicional.classList.add("active");
+      btnEspecial.classList.remove("active");
+      fieldTradicional.classList.remove("hidden");
+      fieldEspecial.classList.add("hidden");
+    });
+
+    btnEspecial.addEventListener("click", () => {
+      modoActual = "especial";
+      btnEspecial.classList.add("active");
+      btnTradicional.classList.remove("active");
+      fieldEspecial.classList.remove("hidden");
+      fieldTradicional.classList.add("hidden");
+    });
+
+    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const cantidad = document.getElementById("cantidadInput").value.trim();
+      const nombre = document.getElementById("nombreInput").value.trim();
+      const notas = document.getElementById("notasInput").value.trim();
+
+      const medidaTexto = modoActual === "tradicional"
+        ? `Medida tradicional: ${document.getElementById("medidaSelect").value}`
+        : `Medida especial: ${document.getElementById("medidaEspecialInput").value.trim() || "A especificar"}`;
+
+      const lineas = [
+        "Hola Estribos Colima Bemon, quiero cotizar:",
+        "Producto: Estribos de alambrón antisísmicos (gancho de 135°)",
+        medidaTexto
+      ];
+
+      if (cantidad) lineas.push(`Cantidad: ${cantidad} piezas`);
+      if (nombre) lineas.push(`Contacto/Obra: ${nombre}`);
+      if (notas) lineas.push(`Notas: ${notas}`);
+
+      window.open(buildWaUrl(lineas.join("\n")), "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
